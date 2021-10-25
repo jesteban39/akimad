@@ -11,7 +11,7 @@ import {
   ListItemButton,
 } from "@mui/material";
 
-import type { user } from "../types";
+import type { user } from "../../types";
 
 const UsersList = () => {
   const usersList = useSelector(

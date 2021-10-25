@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 
-
 import type { userDetail } from "../../types";
 import { getUserDetail } from "../../store/getUserDetail";
 
-const UsersDetail = (props: any) => {
+const UsersDetail = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const user = useSelector(
@@ -16,6 +15,7 @@ const UsersDetail = (props: any) => {
   useEffect(() => {
     dispatch(getUserDetail(router.query.userLogin as string));
   }, []);
+  
   return (
     <article className="container">
       <div>

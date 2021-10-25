@@ -10,14 +10,13 @@ import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-/* import MenuIcon from "@mui/icons-material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import MoreIcon from "@mui/icons-material/MoreVert"; */
+import MoreIcon from "@mui/icons-material/MoreVert";
 
 import Search from "../Search";
-
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -110,7 +109,7 @@ const NavBar = () => {
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
-            {/* <MailIcon /> */}
+             <MailIcon /> 
           </Badge>
         </IconButton>
         <p>Messages</p>
@@ -122,7 +121,7 @@ const NavBar = () => {
           color="inherit"
         >
           <Badge badgeContent={17} color="error">
-            {/* <NotificationsIcon /> */}
+             <NotificationsIcon /> 
           </Badge>
         </IconButton>
         <p>Notifications</p>
@@ -135,7 +134,7 @@ const NavBar = () => {
           aria-haspopup="true"
           color="inherit"
         >
-          {/* <AccountCircle /> */}
+           <AccountCircle /> 
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -153,7 +152,7 @@ const NavBar = () => {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            {/* <MenuIcon /> */}
+             <MenuIcon /> 
           </IconButton>
           <Typography
             variant="h6"
@@ -172,7 +171,7 @@ const NavBar = () => {
               color="inherit"
             >
               <Badge badgeContent={4} color="error">
-                {/* <MailIcon /> */}
+                 <MailIcon /> 
               </Badge>
             </IconButton>
             <IconButton
@@ -181,7 +180,7 @@ const NavBar = () => {
               color="inherit"
             >
               <Badge badgeContent={17} color="error">
-                {/* <NotificationsIcon /> */}
+                 <NotificationsIcon /> 
               </Badge>
             </IconButton>
             <IconButton
@@ -193,7 +192,7 @@ const NavBar = () => {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              {/* <AccountCircle /> */}
+               <AccountCircle /> 
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -205,7 +204,7 @@ const NavBar = () => {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              {/* <MoreIcon /> */}
+               <MoreIcon /> 
             </IconButton>
           </Box>
         </Toolbar>

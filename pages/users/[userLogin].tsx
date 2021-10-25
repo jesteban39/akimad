@@ -3,7 +3,7 @@ import Head from "next/head";
 import type { NextPage } from "next";
 
 import NavBar from "../../components/NavBar";
-import UsersDetail from "../../components/usersDetail";
+import UsersDetail from "../../components/UsersDetail";
 
 const Detail: NextPage = () => {
   return (
