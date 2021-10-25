@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { IconButton, Paper, InputBase } from "@mui/material";
 //import SearchIcon from "@mui/icons-material/Search";
 
-import { getUsersList } from "../store/slices/getUsersList";
+import { getUsersList } from "../store/getUsersList";
 
 const Search = () => {
   const [userName, setUserName] = useState("");

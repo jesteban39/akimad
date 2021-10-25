@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 import axios from "axios";
 
-import type { userDetail } from "../../types";
+import type { userDetail } from "../types";
 
 export const getUserDetail = createAsyncThunk(
   "users/getUserDetail",

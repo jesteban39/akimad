@@ -2,7 +2,6 @@ import Head from "next/head";
 import type { NextPage } from "next";
 
 import NavBar from "../components/NavBar";
-import Search from "../components/Search";
 import UsersList from "../components/UsersList";
 
 const Home: NextPage = () => {
@@ -15,7 +14,6 @@ const Home: NextPage = () => {
       </Head>
       <NavBar />
       <main>
-        <Search />
         <UsersList />
       </main>
       <footer>futer</footer>
