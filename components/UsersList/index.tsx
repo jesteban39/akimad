@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import  Link  from "next/link";
+import Link from "next/link";
 
 import {
   List,
@@ -21,16 +21,16 @@ const UsersList = () => {
   return (
     <List component="nav">
       {usersList.map((user) => (
-        <Link key={user.id} href={`/users/${user.login}`}>
-          <ListItem disablePadding>
+        <ListItem key={user.id}>
+          <Link href={`/users/${user.login}`}>
             <ListItemButton>
               <ListItemAvatar>
                 <Avatar src={user.avatar_url} alt={`Avatar ${user.login}`} />
               </ListItemAvatar>
               <ListItemText primary={user.login} />
             </ListItemButton>
-          </ListItem>
-        </Link>
+          </Link>
+        </ListItem>
       ))}
     </List>
   );
