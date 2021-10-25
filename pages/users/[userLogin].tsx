@@ -3,7 +3,7 @@ import Head from "next/head";
 import type { NextPage } from "next";
 
 import NavBar from "../../components/NavBar";
-//import UsersDetail from "../../components/UsersDetail";
+import UsersDetail from "../../components/UsersDetail";
 
 const Detail: NextPage = () => {
   return (
@@ -15,7 +15,7 @@ const Detail: NextPage = () => {
       </Head>
       <NavBar />
       <main>
-        {/* <UsersDetail /> */}
+        <UsersDetail />
       </main>
       <footer>futer</footer>
     </React.Fragment>
