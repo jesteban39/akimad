@@ -2,22 +2,15 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 
-import { styled } from "@mui/material/styles";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
-import Grid from "@mui/material/Grid";
-import Skeleton from "@mui/material/Skeleton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 
 import type { userDetail } from "../../types";
 import { getUserDetail } from "../../store/getUserDetail";
@@ -36,7 +29,7 @@ const UsersDetail = () => {
   console.log("us", user);
 
   return (
-    <Container sx={{display: 'flex'}}>
+    <Container sx={{display: 'flex', justifyContent: 'space-evenly'}}>
       <Card sx={{ maxWidth: 345 }}>
         <Box sx={{ margin: 1 }}>
           <Avatar
