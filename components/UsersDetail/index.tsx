@@ -29,8 +29,8 @@ const UsersDetail = () => {
   console.log("us", user);
 
   return (
-    <Container sx={{display: 'flex', justifyContent: 'space-evenly'}}>
-      <Card sx={{ maxWidth: 345 }}>
+    <Container sx={{ display: "flex", justifyContent: "space-evenly" }}>
+      <Card sx={{ minWidth: 200, maxWidth: 300 }}>
         <Box sx={{ margin: 1 }}>
           <Avatar
             alt={`avatar ${user.name}`}
@@ -47,7 +47,7 @@ const UsersDetail = () => {
           </Typography>
         </CardContent>
       </Card>
-      <Box sx={{ margin: 2 }}>
+      <Box sx={{ minWidth: 200, maxWidth: 300, margin: 2 }}>
         <Typography gutterBottom variant="h6" component="div">
           Repositories
         </Typography>
@@ -59,7 +59,7 @@ const UsersDetail = () => {
           ))}
         </List>
       </Box>
-      <Box sx={{ margin: 2 }}>
+      <Box sx={{ minWidth: 200, maxWidth: 300, margin: 2 }}>
         <Typography gutterBottom variant="h6" component="div">
           Organizations
         </Typography>
