@@ -9,16 +9,33 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
+import Skeleton from "@mui/material/Skeleton";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import Stack from "@mui/material/Stack";
 
 import type { user } from "../../types";
 
 const UsersList = () => {
-  const { usersList } = useSelector((state: { usersList: user[] }) => state);
+  const { users, status } = useSelector(
+    ({ usersList }: { usersList: { users: user[]; status: string } }) =>
+      usersList
+  );
 
-  return (
+  if (status === "rejected")
+    return (
+      <Stack>
+        <Alert severity="error">
+          <AlertTitle>Error</AlertTitle>
+          Something went wrong when querying the data
+        </Alert>
+      </Stack>
+    );
+
+  return status === "fulfilled" ? (
     <Container>
       <List>
-        {usersList.map((user) => (
+        {users.map((user) => (
           <ListItem key={user.id}>
             <Link href={`/users/${user.login}`}>
               <ListItemButton>
@@ -32,6 +49,17 @@ const UsersList = () => {
         ))}
       </List>
     </Container>
+  ) : (
+    <ListItemButton>
+      <ListItemAvatar>
+        <Skeleton>
+          <Avatar />
+        </Skeleton>
+      </ListItemAvatar>
+      <Skeleton>
+        <ListItemText primary="." />
+      </Skeleton>
+    </ListItemButton>
   );
 };
 export default UsersList;

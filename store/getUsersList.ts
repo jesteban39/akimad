@@ -16,11 +16,31 @@ export const getUsersList = createAsyncThunk(
 
 export const usersListSlice = createSlice({
   name: "usersList",
-  initialState: [] as user[],
+  initialState: {
+    status: "",
+    users: [] as user[],
+  },
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getUsersList.fulfilled, (state: user[], action) => {
-      return (state = action.payload);
-    });
+    builder.addCase(
+      getUsersList.fulfilled,
+      (state: { users: user[]; status: string }, action) => {
+        state.users = action.payload;
+        state.status = "fulfilled";
+        return state;
+      }
+    );
+    builder.addCase(
+      getUsersList.pending,
+      (state: { status: string }, action) => {
+        state.status = "pending";
+      }
+    );
+    builder.addCase(
+      getUsersList.rejected,
+      (state: { status: string }, action) => {
+        state.status = "rejected";
+      }
+    );
   },
 });

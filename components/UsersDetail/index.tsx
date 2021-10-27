@@ -35,7 +35,8 @@ const UsersDetail = () => {
       <Stack>
         <Alert severity="error">
           <AlertTitle>Error</AlertTitle>
-          Something went wrong when querying the data — <strong>Go back to start and try again</strong>
+          Something went wrong when querying the data —{" "}
+          <strong>Go back to start and try again</strong>
         </Alert>
       </Stack>
     );
@@ -64,8 +65,8 @@ const UsersDetail = () => {
           Repositories
         </Typography>
         <List>
-          {user.repos.map((repo) => (
-            <ListItem>
+          {user.repos.map((repo, idx) => (
+            <ListItem key={idx}>
               <ListItemText primary={repo.name} />
             </ListItem>
           ))}
@@ -76,8 +77,8 @@ const UsersDetail = () => {
           Organizations
         </Typography>
         <List>
-          {user.orgs.map((org) => (
-            <ListItem>
+          {user.orgs.map((org, idx) => (
+            <ListItem key={idx}>
               <ListItemText primary={org.login} secondary={org.description} />
             </ListItem>
           ))}
