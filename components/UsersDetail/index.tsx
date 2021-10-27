@@ -11,6 +11,9 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import Stack from "@mui/material/Stack";
 
 import type { userDetail } from "../../types";
 import { getUserDetail } from "../../store/getUserDetail";
@@ -26,6 +29,16 @@ const UsersDetail = () => {
   useEffect(() => {
     dispatch(getUserDetail(router.query.userLogin as string));
   }, []);
+
+  if (user.status === "rejected")
+    return (
+      <Stack>
+        <Alert severity="error">
+          <AlertTitle>Error</AlertTitle>
+          Something went wrong when querying the data — <strong>Go back to start and try again</strong>
+        </Alert>
+      </Stack>
+    );
 
   return user.status === "fulfilled" ? (
     <Container sx={{ display: "flex", justifyContent: "space-evenly" }}>
