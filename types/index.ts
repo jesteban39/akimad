@@ -14,12 +14,16 @@ export type org = {
   login: string;
   description: string;
 };
-
-export type userDetail = {
+export type userData = {
   id: number;
   name: string;
   login: string;
   avatar_url: string;
+};
+
+export type userDetail = {
+  status: string;
+  userData: userData;
   repos: repo[];
   orgs: org[];
 };

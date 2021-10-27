@@ -7,21 +7,14 @@ import type { userDetail } from "../types";
 export const getUserDetail = createAsyncThunk(
   "users/getUserDetail",
   async (userName: string) => {
+    const [resUser, resRepos, resOrgs]: any = await Promise.all([
+      axios.get(`https://api.github.com/users/${userName}`),
+      axios.get(`https://api.github.com/users/${userName}/repos`),
+      axios.get(`https://api.github.com/users/${userName}/orgs`),
+    ]);
 
-    const resUser: any = await axios.get(
-      `https://api.github.com/users/${userName}`
-    );
-    const resRepos: any = await axios.get(
-      `https://api.github.com/users/${userName}/repos`
-    );
-    const resOrgs: any = await axios.get(
-      `https://api.github.com/users/${userName}/orgs`
-    );
     const user = {
-      id: resUser.data.id,
-      name: resUser.data.name,
-      login: resUser.data.login,
-      avatar_url: resUser.data.avatar_url,
+      userData: resUser.data,
       repos: resRepos.data,
       orgs: resOrgs.data,
     };
@@ -32,17 +25,28 @@ export const getUserDetail = createAsyncThunk(
 export const userDetailSlice = createSlice({
   name: "userDetail",
   initialState: {
-    id: 0,
-    name: "",
-    login: "",
-    avatar_url: "",
+    status: "",
+    userData: {
+      id: 0,
+      name: "",
+      login: "",
+      avatar_url: "",
+    },
     repos: [],
     orgs: [],
   } as userDetail,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getUserDetail.fulfilled, (state: userDetail, action) => {
-      return (state = action.payload);
+      state = action.payload;
+      state.status = "fulfilled";
+      return state;
+    });
+    builder.addCase(getUserDetail.pending, (state: userDetail, action) => {
+      state.status = "pending";
+    });
+    builder.addCase(getUserDetail.rejected, (state: userDetail, action) => {
+      state.status = "rejected";
     });
   },
 });

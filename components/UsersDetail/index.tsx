@@ -14,6 +14,7 @@ import CardContent from "@mui/material/CardContent";
 
 import type { userDetail } from "../../types";
 import { getUserDetail } from "../../store/getUserDetail";
+import Skeleton from "./Skeleton";
 
 const UsersDetail = () => {
   const router = useRouter();
@@ -26,24 +27,22 @@ const UsersDetail = () => {
     dispatch(getUserDetail(router.query.userLogin as string));
   }, []);
 
-  console.log("us", user);
-
-  return (
+  return user.status === "fulfilled" ? (
     <Container sx={{ display: "flex", justifyContent: "space-evenly" }}>
       <Card sx={{ minWidth: 200, maxWidth: 300 }}>
         <Box sx={{ margin: 1 }}>
           <Avatar
-            alt={`avatar ${user.name}`}
+            alt={`avatar ${user.userData.name}`}
             sx={{ width: 120, height: 120 }}
-            src={user.avatar_url}
+            src={user.userData.avatar_url}
           />
         </Box>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {user.name}
+            {user.userData.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {user.login}
+            {user.userData.login}
           </Typography>
         </CardContent>
       </Card>
@@ -72,6 +71,8 @@ const UsersDetail = () => {
         </List>
       </Box>
     </Container>
+  ) : (
+    <Skeleton />
   );
 };
 

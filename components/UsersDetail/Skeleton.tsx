@@ -1,41 +1,69 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Grid from "@mui/material/Grid";
 import Skeleton from "@mui/material/Skeleton";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
 
-const UsersDetail = () => {
-  const loading = false;
-
+const UsersDetailSkeleton = () => {
   return (
-    <Container>
-      <h3>l</h3>
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+    <Container sx={{ display: "flex", justifyContent: "space-evenly" }}>
+      <Card sx={{ minWidth: 200, maxWidth: 300 }}>
         <Box sx={{ margin: 1 }}>
-          {loading ? (
-            <Skeleton variant="circular">
-              <Avatar />
-            </Skeleton>
-          ) : (
-            <Avatar src="https://pbs.twimg.com/profile_images/877631054525472768/Xp5FAPD5_reasonably_small.jpg" />
-          )}
+          <Skeleton>
+            <Avatar sx={{ width: 120, height: 120 }} />
+          </Skeleton>
         </Box>
-        <Box sx={{ width: "100%" }}>
-          {loading ? (
-            <Skeleton width="100%">
-              <Typography>.</Typography>
+        <CardContent>
+          <Skeleton>
+            <Typography gutterBottom variant="h5" component="div">
+              .
+            </Typography>
+          </Skeleton>
+
+          <Skeleton>
+            <Typography variant="body2" color="text.secondary">
+              .
+            </Typography>
+          </Skeleton>
+        </CardContent>
+      </Card>
+      <Box sx={{ minWidth: 200, maxWidth: 300, margin: 2 }}>
+        <Skeleton>
+          <Typography gutterBottom variant="h6" component="div">
+            .
+          </Typography>
+        </Skeleton>
+        <List>
+          <ListItem>
+            <Skeleton>
+              <ListItemText primary="." />
             </Skeleton>
-          ) : (
-            <Typography>Ted</Typography>
-          )}
-        </Box>
+          </ListItem>
+        </List>
       </Box>
-      
+      <Box sx={{ minWidth: 200, maxWidth: 300, margin: 2 }}>
+        <Skeleton>
+          <Typography gutterBottom variant="h6" component="div">
+            .
+          </Typography>
+        </Skeleton>
+
+        <List>
+          <ListItem>
+            <Skeleton>
+              <ListItemText primary="." secondary="." />
+            </Skeleton>
+          </ListItem>
+        </List>
+      </Box>
     </Container>
   );
 };
 
-export default UsersDetail;
+export default UsersDetailSkeleton;
